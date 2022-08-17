@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "1bbcd26a-4f44-4434-9789-d1b600399177",
+		"name": "SOAP-WS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetWsdl",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ws/equations.wsdl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ws",
+						"equations.wsdl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post my(1 solution)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\t\t\t\t  xmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <gs:getEquationRequest>\r\n        <gs:request>\r\n         <gs:a>4</gs:a>\r\n         <gs:b>4</gs:b>\r\n         <gs:c>1</gs:c>\r\n        </gs:request>\r\n      </gs:getEquationRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ws",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ws"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post my(2 sjlution)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\t\t\t\t  xmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <gs:getEquationRequest>\r\n        <gs:request>\r\n         <gs:a>-1</gs:a>\r\n         <gs:b>7</gs:b>\r\n         <gs:c>8</gs:c>\r\n        </gs:request>\r\n      </gs:getEquationRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ws",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ws"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post my(no solution)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "text/xml",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"\r\n\t\t\t\t  xmlns:gs=\"http://spring.io/guides/gs-producing-web-service\">\r\n   <soapenv:Header/>\r\n   <soapenv:Body>\r\n      <gs:getEquationRequest>\r\n        <gs:request>\r\n         <gs:a>2</gs:a>\r\n         <gs:b>1</gs:b>\r\n         <gs:c>1</gs:c>\r\n        </gs:request>\r\n      </gs:getEquationRequest>\r\n   </soapenv:Body>\r\n</soapenv:Envelope>\r\n",
+					"options": {
+						"raw": {
+							"language": "xml"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ws",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ws"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get result from spring 1 sol",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/calc?a=4&b=4&c=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"calc"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "4"
+						},
+						{
+							"key": "b",
+							"value": "4"
+						},
+						{
+							"key": "c",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get result from spring 2 sol",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/calc?a=-1&b=7&c=8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"calc"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "-1"
+						},
+						{
+							"key": "b",
+							"value": "7"
+						},
+						{
+							"key": "c",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get result from spring 0 sol",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/calc?a=4&b=1&c=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"calc"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "4"
+						},
+						{
+							"key": "b",
+							"value": "1"
+						},
+						{
+							"key": "c",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
